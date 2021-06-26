@@ -290,7 +290,7 @@ def extract_new_url(url):
     result.extend([''])
     return result
 
-def generate_dataset(urls, dataset):
+def generate_dataset(urls, dataset, phising):
     with open(dataset, "w") as output:
         writer = csv.writer(output)
         writer.writerow(attributes())
@@ -529,9 +529,8 @@ def generate_dataset(urls, dataset):
 
             result = []
             result.extend(_lexical)
-            result.extend(_blacklist)
             result.extend(_host)
             result.extend(_others)
-            result.extend([''])
+            result.extend([phising])
 
-            writer.writerow(result)
+            writer.writerow([result])

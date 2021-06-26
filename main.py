@@ -1,18 +1,38 @@
 import argparse
 from feature_extractor import extract
+import whois
+from datetime import datetime, timezone
 
+import feature_extractor
+
+
+def check_time_activation_domain(url):
+    try:
+        result_whois = whois.whois(url)
+        if not result_whois:
+            return '?'
+        creation_date = str(result_whois.creation_date)
+        formated_date = " ".join(creation_date.split()[:1])
+        d1 = datetime.strptime(formated_date, "%Y-%m-%d")
+        d2 = datetime.now()
+        return abs((d2 - d1).days)
+    except Exception:
+        return 'false'
 
 def main():
-    urls = ["http://arnozom.co.ip.zspqpft.asia/", 
-            "https://firebasestorage.googleapis.com/v0/b/absupdate-89af2.appspot.co...",
-            "https://authentic0000-authetical00000.web.app/#aaaa@example.jp...",
-            "https://treasurerproperty.com/customersupport/login_auth.php?onlineid=...",
-            "https://www.youtube.com/watch?v=sca4VG9b0NY&ab_channel=Abao%E1%BB%9FTokyoAbao%E1%BB%9FTokyo"
+    urls = ["https://www.dropbox.com/sm/password?cont=https://www.dropbox.com/s/hf4...",
+                "https://www.dropbox.com/sm/password?cont=https://www.dropbox.com/s/hf4...",
+                "https://www.liputan6.com/bola/read/4204683/blaise-matuidi-positif-coro...",
+                "https://cheerseeftapps.com/feed/posts/many-women-saw-kavanaugh-wrongly...",
+                "http://cheerseeftapps.com/feed/posts/many-women-saw-kavanaugh-wrongly-...",
+                "https://www.youtube.com/watch?v=_TWbWzhJ2dM&ab_channel=TheHanoiChamomile"
             ]
+    d2 = datetime.now()
     for url in urls:
-        feature= []
-        feature = extract.extract_new_url(url)
-        print(feature)
+        features =[]
+        features = extract.extract_new_url(url)
+        print(features)
+        
 
 if __name__ == "__main__":
     main()

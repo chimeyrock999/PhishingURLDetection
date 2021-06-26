@@ -169,35 +169,48 @@ def extract_ttl(url):
 def time_activation_domain(url):
     """Return time (in days) of domain activation."""
     if url['host'].startswith("www."):
-        url['host'] = url['host'][4:]
+        host=url['host'] = url['host'][4:]
+    else:
+        host=url['host']
 
+    d2 = datetime.now()
     try:
-        result_whois = whois(url['host'].lower())
-        if not result_whois:
-            return '?'
-        creation_date = str(result_whois.creation_date[0])
-        formated_date = " ".join(creation_date.split()[:1])
-        d1 = datetime.strptime(formated_date, "%Y-%m-%d")
-        d2 = datetime.now()
-        return abs((d2 - d1).days)
+        w=whois.whois(host)
+        try:
+            creation_date = str(w.creation_date[0])
+            formated_date = " ".join(creation_date.split()[:1])
+            d1 = datetime.strptime(formated_date, "%Y-%m-%d")
+            return abs((d2 - d1).days)
+        except Exception:
+            creation_date = str(w.creation_date)
+            formated_date = " ".join(creation_date.split()[:1])
+            d1 = datetime.strptime(formated_date, "%Y-%m-%d")
+            return abs((d2 - d1).days)
     except Exception:
         return '?'
 
 def expiration_date_register(url):
     """Retorna time (in days) for register expiration."""
     if url['host'].startswith("www."):
-        url['host'] = url['host'][4:]
+        host=url['host'] = url['host'][4:]
+    else:
+        host=url['host']
+
+    d2 = datetime.now()
     try:
-        result_whois = whois(url['host'].lower())
-        if not result_whois:
-            return 'not_result'
-        expiration_date = str(result_whois.expiration_date[0])
-        formated_date = " ".join(expiration_date.split()[:1])
-        d1 = datetime.strptime(formated_date, "%Y-%m-%d")
-        d2 = datetime.now()
-        return abs((d1 - d2).days)
+        w=whois.whois(host)
+        try:
+            expiration_date = str(w.expiration_date[0])
+            formated_date = " ".join(expiration_date.split()[:1])
+            d1 = datetime.strptime(formated_date, "%Y-%m-%d")
+            return abs((d2 - d1).days)
+        except Exception:
+            expiration_date = str(w.expiration_date)
+            formated_date = " ".join(expiration_date.split()[:1])
+            d1 = datetime.strptime(formated_date, "%Y-%m-%d")
+            return abs((d2 - d1).days)
     except Exception:
-        return 'fail'
+        return '?'
 
 def extract_extension(text):
     """Return file extension name."""
