@@ -1,4 +1,4 @@
-import os
+import urllib.request
 from urllib import parse
 from dns import resolver, reversename
 from datetime import datetime, timezone
@@ -11,6 +11,16 @@ import requests
 import geoip2.database
 
 PATH ='feature_extractor/api/files/'
+
+def check_Alive(url):
+    try:
+        weburl=urllib.request.urlopen(url, timeout=0.75)
+        if (int(weburl.getcode())>=200 and int(weburl.getcode())<300 ):
+            return True
+        else:
+            return False
+    except Exception:
+        return False
 
 def start_url(url):
     ## Split URL into: protocol, host, path, params, query and fragment.
