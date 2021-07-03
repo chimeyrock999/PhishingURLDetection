@@ -52,7 +52,7 @@ def valid_ip(host):
     """Return if the domain has a valid IP format (IPv4 or IPv6)."""
     try:
         ipaddress.ip_address(host)
-        return True
+        return 1
     except Exception:
         return 0
 
