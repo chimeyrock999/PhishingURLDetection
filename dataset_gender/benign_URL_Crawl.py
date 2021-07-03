@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import csv
 
-with open('benign_url.csv', 'w', newline='') as csv_file1:
+with open('benign_urls.csv', 'w', newline='') as csv_file1:
     writer =csv.writer(csv_file1)
     for page in range (1,800):
         print(page)
