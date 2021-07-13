@@ -1,0 +1,14 @@
+body {
+	text-align: center;
+}
+nav {
+background-color:#032d3b;
+}
+input[type="text"] {
+	height: 50px;
+	width: 700px;
+}
+input[type="text"]:hover {
+	color: #000000de;
+	border-color: #129d06;
+}

@@ -122,7 +122,7 @@ def count_ips(url):
         answers = resolver.query(url['host'], 'A')
         return len(answers)
     except Exception:
-        return '?'
+        return '-1'
 
 def count_name_servers(url):
     """Return number of NameServers (NS) resolved."""
@@ -174,7 +174,7 @@ def extract_ttl(url):
         ttl = resolver.query(url['host']).rrset.ttl
         return ttl
     except Exception:
-        return '?'
+        return '-1'
 
 def time_activation_domain(url):
     """Return time (in days) of domain activation."""
