@@ -9,7 +9,15 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
-    <p>This page is phising!</p>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg p-3 mb-5" style="background-color:#032d3b;">
+        <div class="container d-flex justify-content-center">
+            <h2 class="navbar-text text-white">
+                Phising Url Detection
+            </h2>
+        </div>
+    </nav>
+    <img src="..\static\img\phising.png" width="800px" height="auto">
+    <h2 class="phishing-text" style="color: red">This page is phising!</h2>
 <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>

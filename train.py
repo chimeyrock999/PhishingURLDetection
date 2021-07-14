@@ -136,7 +136,3 @@ cross_val_scores = cross_validate(sigmoid_clf, X, y, cv=fold_count, scoring=scor
 sigmoid_svc_clf_score = mean_score(cross_val_scores)
 print(['sigmoid_svc:',sigmoid_svc_clf_score])
 '''
-
-def predict_new_url(url):
-    feature=extract.extract_new_url(url)
-    return rforest_clf.predict(feature)

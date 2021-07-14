@@ -12,3 +12,13 @@ input[type="text"]:hover {
 	color: #000000de;
 	border-color: #129d06;
 }
+
+.phising-text{
+	color: red;
+}
+.benign-text{
+	color: #129d06;
+}
+.occurred-text{
+	color: yellow;
+}
