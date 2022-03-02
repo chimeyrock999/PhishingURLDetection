@@ -5,7 +5,7 @@ from flask import redirect
 from collections import Counter
 from flask import render_template
 from flask.wrappers import Response
-import predict
+from .. import predict
 
 userAgent = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36')
 
