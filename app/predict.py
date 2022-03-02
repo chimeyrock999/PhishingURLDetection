@@ -8,18 +8,18 @@ from sklearn import preprocessing
 
 def predict_new_url(url):
     #load benign dataset
-    benign_df=pd.read_csv("dataset_gender/benign_dataset.csv", header=0)
+    benign_df=pd.read_csv("app/dataset_gender/benign_dataset.csv", header=0)
     #print(benign_df)
     #print(benign_df.describe())
 
     #load phising dataset
-    phising_df=pd.read_csv("dataset_gender/phising_dataset.csv",header=0)
+    phising_df=pd.read_csv("app/dataset_gender/phising_dataset.csv",header=0)
     #print(phising_df)
     #print(phising_df.describe())
 
-    extract.extract_new_url(url,'dataset_gender/predict.csv')
+    extract.extract_new_url(url,'app/dataset_gender/predict.csv')
 
-    predict=pd.read_csv('dataset_gender/predict.csv', header=0)
+    predict=pd.read_csv('app/dataset_gender/predict.csv', header=0)
 
     #concat and 2 dataframe
     frame=[benign_df, phising_df]

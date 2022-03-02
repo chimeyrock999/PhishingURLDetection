@@ -10,7 +10,7 @@ import re
 import requests
 import geoip2.database
 
-PATH ='feature_extractor/api/files/'
+PATH ='app/feature_extractor/api/files/'
 
 def check_Alive(url):
     try:
