@@ -104,35 +104,8 @@ KNeighbors_clf=KNeighborsClassifier(3)
 cross_val_scores = cross_validate(KNeighbors_clf, X, y, cv=fold_count, scoring=scoring)
 KNeighbors_clf_score = mean_score(cross_val_scores)
 print(['KNeighborsClassifier(3):',KNeighbors_clf_score])
-'''
-logistic_clf=LogisticRegression(random_state=1)
-cross_val_scores = cross_validate(logistic_clf, X, y, cv=fold_count, scoring=scoring)
-logistic_clf_score = mean_score(cross_val_scores)
-print(['LogisticRegression:',logistic_clf_score])
-'''
+
 neural_clf=MLPClassifier(hidden_layer_sizes=(33,),max_iter=500)
 cross_val_scores = cross_validate(neural_clf, X, y, cv=fold_count, scoring=scoring)
 neural_clf_score = mean_score(cross_val_scores)
 print(['MLPClassifier:', neural_clf_score])
-'''
-###linear
-linear_clf = svm.SVC(kernel='linear')
-cross_val_scores = cross_validate(linear_clf, X, y, cv=fold_count, scoring=scoring)
-linear_svc_clf_score = mean_score(cross_val_scores)
-print(linear_svc_clf_score)
-###poly
-poly_clf = svm.SVC(kernel='poly')
-cross_val_scores = cross_validate(poly_clf, X, y, cv=fold_count, scoring=scoring)
-poly_svc_clf_score = mean_score(cross_val_scores)
-print(poly_svc_clf_score)
-###rbf
-rbf_clf = svm.SVC(kernel='rbf')
-cross_val_scores = cross_validate(rbf_clf, X, y, cv=fold_count, scoring=scoring)
-rbf_svc_clf_score = mean_score(cross_val_scores)
-print(rbf_svc_clf_score)
-###sigmoid
-sigmoid_clf = svm.SVC(kernel='sigmoid')
-cross_val_scores = cross_validate(sigmoid_clf, X, y, cv=fold_count, scoring=scoring)
-sigmoid_svc_clf_score = mean_score(cross_val_scores)
-print(['sigmoid_svc:',sigmoid_svc_clf_score])
-'''
