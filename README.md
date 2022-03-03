@@ -11,7 +11,7 @@ git clone https://github.com/chimeyrock999/PhisingURLDetection.git
 python wsgi.py
 ```
 ## Preview: 
-[here](https://cmr-phishing-url-detection.herokuapp.com/)
+Heroku: [here](https://cmr-phishing-url-detection.herokuapp.com/)
 
 ## Authors
 * chimeyrock999
