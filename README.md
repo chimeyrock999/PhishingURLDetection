@@ -8,8 +8,10 @@ git clone https://github.com/chimeyrock999/PhisingURLDetection.git
 ```
 ## Run project
 ```
-python app.py
+python wsgi.py
 ```
+## Preview: 
+[here](https://cmr-phishing-url-detection.herokuapp.com/)
 
 ## Authors
 * chimeyrock999
