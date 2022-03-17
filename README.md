@@ -14,4 +14,4 @@ python wsgi.py
 Heroku: [here](https://cmr-phishing-url-detection.herokuapp.com/)
 
 ## Authors
-* chimeyrock999
+* Trinh Van Thoai-chimeyrock999
