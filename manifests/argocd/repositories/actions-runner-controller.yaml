@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: actions-runner-controller
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://actions-runner-controller.github.io/actions-runner-controller
+  name: actions-runner-controller
+  type: helm
