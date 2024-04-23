@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  destination:
+    namespace: cert-manager
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: ingress-nginx
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: installCRDs
+          value: 'true'
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 4.10.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
