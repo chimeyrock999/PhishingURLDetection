@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: arc-runner-set
+  namespace: argocd
+spec:
+  destination:
+    namespace: arc-runners
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: gha-runner-scale-set
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: githubConfigUrl
+          # Change to your GitHub Repository URL
+          value: https://github.com/chimeyrock999/PhishingURLDetection
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: 0.9.1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
