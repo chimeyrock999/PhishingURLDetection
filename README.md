@@ -7,9 +7,15 @@ Clone the project
 git clone https://github.com/chimeyrock999/PhisingURLDetection.git
 ```
 ## Run project
+
+### To deploy this Project
+1. Chan
+
+```bash
+kubectl apply -f ./manifests/argocd/repositories/github.yaml   
+kubectl apply -f ./manifests/argocd/applications/github.yaml
 ```
-python wsgi.py
-```
+
 ## Preview: 
 Heroku: [here](https://cmr-phishing-url-detection.herokuapp.com/)
 
