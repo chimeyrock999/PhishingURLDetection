@@ -16,7 +16,9 @@ spec:
       parameters:
         - name: githubConfigUrl
           # Change to your GitHub Repository URL
-          value: https://github.com/chimeyrock999/PhishingURLDetection
+          value: "https://github.com/chimeyrock999/PhishingURLDetection"
+        - name: githubConfigSecret.github_token
+          value: ""
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.1
   syncPolicy:
