@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gha-runner-scale-set-controller
+  name: actions-runner-controller
   namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repository
 stringData:
   enableOCI: "true"
-  url: ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
+  url: ghcr.io/actions/actions-runner-controller-charts
   name: actions-runner-controller
   type: helm
