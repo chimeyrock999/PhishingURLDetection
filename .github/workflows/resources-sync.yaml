@@ -1,4 +1,4 @@
-name: sync github application when manifests change
+name: Resources Sync
 
 on:
   push:
