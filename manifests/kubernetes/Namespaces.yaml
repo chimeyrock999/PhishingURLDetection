@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: webserver
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-controller
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arc-runners
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arc-systems
