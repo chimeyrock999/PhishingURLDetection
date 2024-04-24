@@ -3,7 +3,7 @@ name: Resources Sync
 on:
   push:
     paths:
-      - manifests/*
+      - 'manifests/**'
 
 jobs:
   sync:
