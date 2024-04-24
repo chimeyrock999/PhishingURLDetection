@@ -48,7 +48,14 @@ To perform the authentication, follow the [document](https://docs.github.com/en/
 In the `values.yaml` of `gha-runner-scale-set`, there is a configuration `githubConfigSecret: github-token-secret`. Because of security problems, I don't want to use GitOps Pipeline for this `Secret`.
 So I create a `github-token-secret`:
 ```yaml
-
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-token-secret
+  namespace: arc-runners
+data:
+  github_token: <YOUR_BASE64_ENCODED_TOKEN>
+type: Opaque
 ```
 And then use command to create the `Secret`:
 ```bash
