@@ -15,8 +15,7 @@ spec:
         - values.yaml
       values: |-
         githubConfigUrl: https://github.com/chimeyrock999/PhishingURLDetection
-        githubConfigSecret:
-          github_token: nothing_here
+        githubConfigSecret: arc-runner-set-gha-rs-github-secret
         controllerServiceAccount:
           namespace: arc-systems
           name: gha-runner-scale-set-controller-gha-rs-controller
