@@ -3,7 +3,7 @@ name: sync github application when manifests change
 on:
   push:
     paths:
-      - manifests/
+      - manifests/*
 
 jobs:
   sync:
