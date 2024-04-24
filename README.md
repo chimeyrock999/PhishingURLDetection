@@ -45,20 +45,19 @@ self-host runner deployed by using Helm Chart and ArgoCD (check `mainfest/argocd
 
 To perform the authentication, follow the [document](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-personal-access-token).
 
-In the `values.yaml` of `gha-runner-scale-set`, there is a configuration `githubConfigSecret: arc-runner-set-gha-rs-github-secret`. Because of security problems, I don't want to use GitOps Pipeline for this `Secret`.
-So I will create a `arc-runner-set-gha-rs-github-secret.yaml`:
+In the `values.yaml` of `gha-runner-scale-set`, there is a configuration `githubConfigSecret: github-token-secret`. Because of security problems, I don't want to use GitOps Pipeline for this `Secret`.
+So I create a `github-token-secret`:
 ```yaml
 
 ```
 And then use command to create the `Secret`:
 ```bash
-kubectl apply -f arc-runner-set-gha-rs-github-secret.yaml
+kubectl apply -f github-token-secret.yaml
 ``` 
-
 
 Or you can use a command line bellow:
 ```bash
-kubectl create secret generic arc-runner-set-gha-rs-github-secret \
+kubectl create secret generic github-token-secret \
     --namespace=arc-runners \
    --from-literal=github_token='<YOUR_TOKEN>'
 ```
