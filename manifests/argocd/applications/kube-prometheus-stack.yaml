@@ -20,15 +20,43 @@ spec:
           ingress:
             enabled: true
             annotations:
-              kubernetes.io/ingress.class: nginx
-              kubernetes.io/tls-acme: "true"
               cert-manager.io/cluster-issuer: letsencrypt-prod
+            ingressClassName: nginx
             host:
-              - monitoring.fde.xplat.cafe
+              - chimeyrock999.fde.xplat.cafe
+            paths: /monitoring
             tls:
               - secretName: grafana-tls
                 hosts:
-                  - monitoring.fde.xplat.cafe
+                  - chimeyrock999.fde.xplat.cafe
+        alertmanager:
+          enabled: true
+          ingress:
+            enabled: true
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-prod
+            ingressClassName: nginx
+            host:
+              - chimeyrock999.fde.xplat.cafe
+            paths: /alertmanager
+            tls:
+              - secretName: grafana-tls
+                hosts:
+                  - chimeyrock999.fde.xplat.cafe
+        thanosRuler:
+          enabled: true
+          ingress:
+            enabled: true
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-prod
+            ingressClassName: nginx
+            host:
+              - chimeyrock999.fde.xplat.cafe
+            paths: /thanos
+            tls:
+              - secretName: grafana-tls
+                hosts:
+                  - chimeyrock999.fde.xplat.cafe
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 58.2.2
   syncPolicy:
