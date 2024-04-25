@@ -30,36 +30,6 @@ spec:
               - secretName: grafana-tls
                 hosts:
                   - chimeyrock999.fde.xplat.cafe
-        alertmanager:
-          enabled: true
-          ingress:
-            enabled: true
-            annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-prod
-            ingressClassName: nginx
-            host:
-              - chimeyrock999.fde.xplat.cafe
-            paths: 
-              - /alertmanager
-            tls:
-              - secretName: grafana-tls
-                hosts:
-                  - chimeyrock999.fde.xplat.cafe
-        thanosRuler:
-          enabled: true
-          ingress:
-            enabled: true
-            annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-prod
-            ingressClassName: nginx
-            host:
-              - chimeyrock999.fde.xplat.cafe
-            paths: 
-              - /thanosruler
-            tls:
-              - secretName: grafana-tls
-                hosts:
-                  - chimeyrock999.fde.xplat.cafe
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 58.2.2
   syncPolicy:
