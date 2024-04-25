@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: prometheus
+    namespace: monitoring
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -16,7 +16,7 @@ spec:
       values: |-
         grafana:
           enabled: true
-          namespaceOverride: "grafana"
+          namespaceOverride: "monitoring"
           ingress:
             enabler: true
             annotations:
@@ -38,3 +38,4 @@ spec:
     syncOptions:  
       - CreateNamespace=true
       - PrunePropagationPolicy=background
+      - ServerSideApply=true
