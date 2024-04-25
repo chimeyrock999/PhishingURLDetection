@@ -24,7 +24,8 @@ spec:
             ingressClassName: nginx
             host:
               - chimeyrock999.fde.xplat.cafe
-            paths: /monitoring
+            paths: 
+              - /monitoring
             tls:
               - secretName: grafana-tls
                 hosts:
@@ -38,7 +39,8 @@ spec:
             ingressClassName: nginx
             host:
               - chimeyrock999.fde.xplat.cafe
-            paths: /alertmanager
+            paths: 
+              - /alertmanager
             tls:
               - secretName: grafana-tls
                 hosts:
@@ -52,7 +54,8 @@ spec:
             ingressClassName: nginx
             host:
               - chimeyrock999.fde.xplat.cafe
-            paths: /thanos
+            paths: 
+              - /thanosruler
             tls:
               - secretName: grafana-tls
                 hosts:
