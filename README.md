@@ -40,12 +40,12 @@ argocd repo add
 ```
 
 ## CI/CD Pipeline
-I've use GitHub persional access token to setup CI/CD pipeline with 
+1. I've use GitHub persional access token to setup CI/CD pipeline with 
 self-host runner deployed by using Helm Chart and ArgoCD (check `mainfest/argocd/application/gha-runner-scale-set-controller` and `mainfest/argocd/application/gha-runner-scale-set` for more detail).
 
 To perform the authentication, follow the [document](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-personal-access-token).
 
-In the `values.yaml` of `gha-runner-scale-set`, there is a configuration `githubConfigSecret: github-token-secret`. Because of security problems, I don't want to use GitOps Pipeline for this `Secret`.
+2. In the `values.yaml` of `gha-runner-scale-set`, there is a configuration `githubConfigSecret: github-token-secret`. Because of security problems, I don't want to use GitOps Pipeline for this `Secret`.
 So I create a `github-token-secret`:
 ```yaml
 apiVersion: v1
@@ -68,6 +68,6 @@ kubectl create secret generic github-token-secret \
     --namespace=arc-runners \
    --from-literal=github_token='<YOUR_TOKEN>'
 ```
-
+3. Because I use ArgoCD for continous delivery, so I have to install 
 ## Authors
 * Trinh Van Thoai-chimeyrock999

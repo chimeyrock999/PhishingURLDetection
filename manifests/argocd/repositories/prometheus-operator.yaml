@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prometheus-operator
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://openchart.choerodon.com.cn/choerodon/c7n
+  name: choerodon
+  type: helm
