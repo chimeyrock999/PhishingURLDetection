@@ -18,7 +18,7 @@ spec:
           enabled: true
           namespaceOverride: "monitoring"
           ingress:
-            enabler: true
+            enabled: true
             annotations:
               kubernetes.io/ingress.class: nginx
               kubernetes.io/tls-acme: "true"
